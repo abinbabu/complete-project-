@@ -29,7 +29,7 @@
 					</c:when>
 
 					<c:otherwise>
-						<td><form:input path="id" pattern=".{5,7}" required="true"
+						<td><form:input path="id"  required="true"
 								title="Enter a valid id" /></td>
 					</c:otherwise>
 				</c:choose>
