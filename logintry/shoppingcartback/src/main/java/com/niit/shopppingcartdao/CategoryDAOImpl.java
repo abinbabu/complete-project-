@@ -31,6 +31,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		if (listCategory != null && !listCategory.isEmpty()) {
 			return listCategory.get(0);
 		}
+		
 		return null;
 
 	}

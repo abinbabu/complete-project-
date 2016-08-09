@@ -2,6 +2,7 @@ package com.niit.shoppingcart.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -61,6 +62,17 @@ public class AdminController {
 		mv.addObject("supplier", supplier);
 		mv.addObject("isAdminClickedSupplier", "True");
 		mv.addObject("supplierList", supplierDAO.list());
+		return mv;
+	}
+	
+	@RequestMapping("/category/remove/{id}")
+	public ModelAndView deleteCategory (@PathVariable("id") String id)
+	{
+		ModelAndView mv=new ModelAndView("/home");
+	
+		
+		
+		categoryDAO.delete(id);
 		return mv;
 	}
 
