@@ -32,7 +32,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>welcome</title>
 </head>
-<body>
+<body >
 	<div class="navbar-wrapper">
 		<div class="container">
 
@@ -134,7 +134,7 @@
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
 				<img class="first-slide"
-					src="C:\Users\Abin\Desktop\logintry\shoppingcartfront\src\main\webapp\resources\images\sam.jpg"
+					src="<c:url value="/resources/images/sam.png/" />"
 					alt="First slide">
 				<div class="container">
 					<div class="carousel-caption">
@@ -149,7 +149,7 @@
 			</div>
 			<div class="item">
 				<img class="second-slide"
-					src="C:\Users\Abin\Desktop\logintry\shoppingcartfront\src\main\webapp\resources\images\sony.jpg"
+					src="<c:url value="/resources/images/sony.png/" />"
 					alt="Second slide">
 				<div class="carousel-caption">
 					<h1>BIG saLE OffEr</h1>
@@ -162,7 +162,7 @@
 			</div>
 			<div class="item">
 				<img class="third-slide"
-					src="C:\Users\Abin\Desktop\logintry\shoppingcartfront\src\main\webapp\resources\images\wash.jpg"
+					src="<c:url value="/resources/images/wash.png/" />"
 					alt="Third slide">
 				<div class="carousel-caption">
 					<h1>Go on....</h1>
