@@ -10,11 +10,12 @@ import org.springframework.stereotype.Component;
 @Table(name="category")
 @Component
 public class Category {
+	@Id
 	private String id;
 	private String name;
 	private String description;
 	
-	@Id
+	
 	public String getId() {
 		return id;
 	}

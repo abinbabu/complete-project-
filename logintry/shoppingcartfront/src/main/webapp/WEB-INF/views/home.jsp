@@ -32,7 +32,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>welcome</title>
 </head>
-<body >
+<body>
 	<div class="navbar-wrapper">
 		<div class="container">
 
@@ -53,13 +53,12 @@
 
 						<li><a href="#about">About</a></li>
 						<li><a href="#contact">Contact</a></li>
-
+						<li><a href="register">register</a></li>
 						<div class="navbar-form navbar-right">
 
 							<button type="submit" class="btn btn-success" data-toggle="modal"
 								data-target="#mysignin">Sign in</button>
-							<button type="submit" class="btn btn-success" data-toggle="modal"
-								data-target="#mysignup">Sign up</button>
+
 
 						</div>
 					</ul>
@@ -185,24 +184,19 @@
 	</div>
 	<table width="100%">
 		<tr>
-
-
 			<c:choose>
 				<c:when test="${empty loggedInUser}">
 
 
 
-					<td align="center">New user ? <a href="register">register</a></td>
+					
 				</c:when>
-
-
+				
 				<c:when test="${not empty loggedInUser}">
 					<td>Welcome ${loggedInUser},</td>
 					<td align="right"><a href="logout"> logout</a></td>
 				</c:when>
-
-
-			</c:choose>
+				</c:choose>
 		</tr>
 		<tr>
 			<c:if test="${loggedOut==true}">
@@ -214,7 +208,7 @@
 		<c:if
 			test="${isUserClickedLoginHere==true || invalidCredentials==true}">
 			<div id="error">${errorMessage}</div>
-			<%@ include file="login.jsp"%>
+			
 
 		</c:if>
 	</div>
@@ -247,12 +241,12 @@
 
 
 
-		<div id="register">
-			<c:if test="${isUserClickedRegisterHere==true}">
-				<%@ include file="register.jsp"%>
+	<div id="register">
+		<c:if test="${isUserClickedRegisterHere==true}">
 
-			</c:if>
-		</div>
+
+		</c:if>
+	</div>
 </body>
 </html>
 <%@ include file="footer.jsp"%>

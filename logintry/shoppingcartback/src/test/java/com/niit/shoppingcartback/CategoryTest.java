@@ -17,9 +17,9 @@ public class CategoryTest {
 		Category category = (Category) context.getBean("category");
 		
 		// Create Operation
-		category.setId("CG02");
-		category.setName("CGName02");
-		category.setDescription("CGDesc02");
+		category.setId("CG22");
+		category.setName("CG22");
+		category.setDescription("CG22");
 	    categoryDAO.saveOrUpdate(category);
 		
 	    // categoryDAO.delete("CG01"); --> Delete Operation

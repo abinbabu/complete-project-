@@ -22,7 +22,7 @@
 						<spring:message text="SupplierID" />
 					</form:label></td>
 				<c:choose>
-
+  
 					<c:when test="${!empty supplier.id}">
 						<td><form:input path="id" disabled="true" readonly="true" />
 						</td>

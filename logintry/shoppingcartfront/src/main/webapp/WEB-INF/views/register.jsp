@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
@@ -18,11 +18,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Register User</title>
 </head>
-<body>
+<body background="<c:url value="/resources/images/lighthous.png/" />">
 
 	
     <form:form action="here/register" method="post" modelAttribute="user">
-		<table>
+    </br></br></br></br></br></br></br></br></br></br></br></br>
+		<table align="center">
 			<tr>
 				<td><form:label path="id">
 						<spring:message text="ID" />

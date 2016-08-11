@@ -1,8 +1,9 @@
 package com.niit.shoppingcart.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,7 +36,7 @@ public class AdminController {
 	@Autowired
 	private SupplierDAO supplierDAO;
 
-	@RequestMapping("/categories")
+ 	@RequestMapping(value="/manageCategories")
 	public ModelAndView category() {
 
 		ModelAndView mv = new ModelAndView("/home");
@@ -45,16 +46,16 @@ public class AdminController {
 		return mv;
 	}
 
-	@RequestMapping("/products")
-	public ModelAndView product() {
-
-		ModelAndView mv = new ModelAndView("/home");
-		mv.addObject("product", product);
-		mv.addObject("isAdminClickedProduct", "true");
-		mv.addObject("productList", productDAO.list());
-		return mv;
-	}
-
+//	@RequestMapping("/products")
+//	public ModelAndView product() {
+//
+//		ModelAndView mv = new ModelAndView("/home");
+//		mv.addObject("product", product);
+//		mv.addObject("isAdminClickedProduct", "true");
+//		mv.addObject("productList", productDAO.list());
+//		return mv;
+//	}
+//
 	@RequestMapping("/suppliers")
 	public ModelAndView supplier() {
 
@@ -64,16 +65,6 @@ public class AdminController {
 		mv.addObject("supplierList", supplierDAO.list());
 		return mv;
 	}
-	
-	@RequestMapping("/category/remove/{id}")
-	public ModelAndView deleteCategory (@PathVariable("id") String id)
-	{
-		ModelAndView mv=new ModelAndView("/home");
-	
-		
-		
-		categoryDAO.delete(id);
-		return mv;
-	}
+
 
 }

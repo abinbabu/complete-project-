@@ -21,7 +21,7 @@
 
 	<table>
 		<tr>
-			<td align="left"><a href="categories"
+			<td align="left"><a href="manageCategories"
 				style="textfont-size: 200%; font-family: verdana; color: #00000F">Manage
 					Categories</a></td>
 			<td align="right"><a href="products"

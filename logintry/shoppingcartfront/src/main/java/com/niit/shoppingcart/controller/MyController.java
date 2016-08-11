@@ -1,20 +1,13 @@
 package com.niit.shoppingcart.controller;
 
-import javax.enterprise.inject.Model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.niit.shoppingcart.model.Category;
-import com.niit.shoppingcart.model.Supplier;
 import com.niit.shoppingcart.model.User;
-import com.niit.shopppingcartdao.CategoryDAO;
-import com.niit.shopppingcartdao.SupplierDAO;
 import com.niit.shopppingcartdao.UserDAO;
 
 
@@ -23,11 +16,7 @@ import com.niit.shopppingcartdao.UserDAO;
 @Controller
 public class MyController {
 	
-	@Autowired
-	CategoryDAO categoryDAO;
-	
-	@Autowired
-	SupplierDAO supplierDAO;
+
 	
 	
 	@Autowired
@@ -52,11 +41,14 @@ public class MyController {
 	}
 	@RequestMapping("/register")
 	public ModelAndView register() {
-		ModelAndView mv = new ModelAndView("/home");
+		ModelAndView mv = new ModelAndView("/register");
 		mv.addObject("user", user);
 		mv.addObject("isUserClickedRegisterHere", "true");
 		return mv;
 	}	
+	
+
+
 	
 	@RequestMapping(value = "here/register", method = RequestMethod.POST)
 	public ModelAndView registerUser(@ModelAttribute User user) {
@@ -66,24 +58,7 @@ public class MyController {
 
 		return mv;
 	}
-	@RequestMapping(value="/to_add_category",method=RequestMethod.POST)
-	public ModelAndView addCategory(@ModelAttribute Category category)
-	{
-		categoryDAO.saveOrUpdate(category);
-		ModelAndView mv=new ModelAndView("/home");
-		mv.addObject("categorySuccessMsg", "Category successfully added");
-		return mv;
-	}
-	
-	
-	@RequestMapping(value="/to_add_supplier",method=RequestMethod.POST)
-	public ModelAndView addSupplier(@ModelAttribute Supplier supplier)
-	{
-		supplierDAO.saveOrUpdate(supplier);
-		ModelAndView mv=new ModelAndView("/home");
-		mv.addObject("supplierSuccessMsg", "supplier successfully added");
-		return mv;
-	}
+
 	
 	
 	

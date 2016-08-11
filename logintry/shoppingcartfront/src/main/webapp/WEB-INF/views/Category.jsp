@@ -27,13 +27,14 @@
 					</c:when>
 
 					<c:otherwise>
-						<td><form:input path="id"  required="true"
+						<td><form:input path="id"  required="true" 
 								title="Enter a valid id" /></td>
 					</c:otherwise>
 				</c:choose>
 			</tr>
 
 			<tr>
+			    <form:input path="id" hidden ="true"/>
 				<td style=" font-family: verdana; color: #00000F"><form:label path="name">
 						<spring:message text="Name"></spring:message>
 					</form:label></td>
@@ -63,6 +64,7 @@
 	<br>
 	
 	<h2 style=" font-family: verdana; color: #00000F;text-align: center">LIST OF CATEGORIES</h2>
+	
 	<c:if test="${!empty categoryList}">
 		<table align="center">
 			<tr>
