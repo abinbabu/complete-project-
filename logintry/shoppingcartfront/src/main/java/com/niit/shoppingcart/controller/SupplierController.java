@@ -1,6 +1,7 @@
 package com.niit.shoppingcart.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.niit.shoppingcart.model.Supplier;
 import com.niit.shopppingcartdao.SupplierDAO;
-
+@Controller
 public class SupplierController {
 
 	@Autowired
@@ -19,7 +20,7 @@ public class SupplierController {
 	@Autowired
 	SupplierDAO supplierDAO;
 	
-	@RequestMapping(value = "/suppliers", method = RequestMethod.GET)
+	@RequestMapping(value = "/Suppliers", method = RequestMethod.GET)
 	public String listCategories(Model model) {
 		model.addAttribute("isAdminClickedSupplier", "True");
 		model.addAttribute("supplier", supplier);
@@ -31,7 +32,7 @@ public class SupplierController {
 	public String addSuppliers(@ModelAttribute("supplier") Supplier supplier) {
 		supplierDAO.saveOrUpdate(supplier);
 
-		return "redirect:/suppliers";
+		return "redirect:/Suppliers";
 	}
 	
 	@RequestMapping(value = "supplier/remove/{id}")
@@ -43,9 +44,17 @@ public class SupplierController {
 			model.addAttribute("message", e.getMessage());
 			e.printStackTrace();
 		}
-		return "redirect:/suppliers";
+		return "redirect:/Suppliers";
 	}
 	
+	@RequestMapping(value = "supplier/edit/{id}")
+	public String editSuppliers(@PathVariable("id") String id,ModelMap model) {
+		supplier=supplierDAO.get(id);
+		model.addAttribute("supplier", supplier);
+		model.addAttribute("supplierList",supplierDAO.list());
+
+		return "redirect:/Suppliers";
+	}
 	
 	
 	

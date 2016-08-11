@@ -36,6 +36,7 @@
 			</tr>
 
 			<tr>
+			<form:input path="id" hidden ="true"/>
 				<td style="font-family: verdana; color: #00000F"><form:label
 						path="name">
 						<spring:message text="SupplierName"></spring:message>
