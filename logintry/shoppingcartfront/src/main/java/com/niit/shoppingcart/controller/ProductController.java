@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 import com.niit.shoppingcart.model.Product;
+import com.niit.shoppingcart.util.Util;
 import com.niit.shopppingcartdao.ProductDAO;
 
 @Controller
@@ -33,6 +34,10 @@ public class ProductController {
 
 	@RequestMapping(value = "/to_add_product", method = RequestMethod.POST)
 	public String addProducts(@ModelAttribute("product") Product product) {
+		
+		String newID=Util.removeComma(product.getId());
+		product.setId(newID);
+		
 		productDAO.saveOrUpdate(product);
 
 		return "redirect:/Products";

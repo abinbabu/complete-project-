@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.niit.shoppingcart.model.Supplier;
+import com.niit.shoppingcart.util.Util;
 import com.niit.shopppingcartdao.SupplierDAO;
 @Controller
 public class SupplierController {
@@ -30,6 +31,11 @@ public class SupplierController {
 	
 	@RequestMapping(value = "/to_add_supplier", method = RequestMethod.POST)
 	public String addSuppliers(@ModelAttribute("supplier") Supplier supplier) {
+		
+		String newID=Util.removeComma(supplier.getId());
+		supplier.setId(newID);
+		
+		
 		supplierDAO.saveOrUpdate(supplier);
 
 		return "redirect:/Suppliers";
