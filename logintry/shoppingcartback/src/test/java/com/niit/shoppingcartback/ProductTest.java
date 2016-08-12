@@ -3,7 +3,9 @@ package com.niit.shoppingcartback;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.shoppingcart.model.Product;
+import com.niit.shopppingcartdao.CategoryDAO;
 import com.niit.shopppingcartdao.ProductDAO;
+import com.niit.shopppingcartdao.SupplierDAO;
 
 public class ProductTest {
 	public static void main(String[] args) {
@@ -13,14 +15,19 @@ public class ProductTest {
 		context.scan("com.niit");
 		context.refresh();
 		ProductDAO productDAO = (ProductDAO) context.getBean("productDAO");
+		CategoryDAO categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
+		SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");
 		Product product = (Product) context.getBean("product");
 		
 		// Create Operation
+		
 		product.setId("CG01");
 		product.setName("htc01");
 		product.setDescription("CGDesc01");
-		product.setPrice("200000");
-	    productDAO.saveOrUpdate(product);
+		product.setPrice(200000);
+	    product.setCategory(categoryDAO.get("cg5"));
+	    product.setSupplier(supplierDAO.get("sp2"));
+		productDAO.saveOrUpdate(product);
 		
 	    // categoryDAO.delete("CG01"); --> Delete Operation
 		

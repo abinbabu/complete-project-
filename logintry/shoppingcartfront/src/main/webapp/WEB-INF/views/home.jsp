@@ -182,71 +182,78 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-	<table width="100%">
-		<tr>
-			<c:choose>
-				<c:when test="${empty loggedInUser}">
+<br> <br> <br><br> <br>
 
 
 
-					
-				</c:when>
-				
-				<c:when test="${not empty loggedInUser}">
-					<td>Welcome ${loggedInUser},</td>
-					<td align="right"><a href="logout"> logout</a></td>
-				</c:when>
+
+
+
+		<table width="100%">
+			<tr>
+				<c:choose>
+					<c:when test="${empty loggedInUser}">
+
+
+
+
+					</c:when>
+
+					<c:when test="${not empty loggedInUser}">
+						<td>Welcome ${loggedInUser},</td>
+						<td align="right"><a href="logout"> logout</a></td>
+					</c:when>
 				</c:choose>
-		</tr>
-		<tr>
-			<c:if test="${loggedOut==true}">
-				<td>${logoutMessage}</td>
+			</tr>
+			<tr>
+				<c:if test="${loggedOut==true}">
+					<td>${logoutMessage}</td>
+				</c:if>
+			</tr>
+		</table>
+		<div id="login">
+			<c:if
+				test="${isUserClickedLoginHere==true || invalidCredentials==true}">
+				<div id="error">${errorMessage}</div>
+
+
 			</c:if>
-		</tr>
-	</table>
-	<div id="login">
-		<c:if
-			test="${isUserClickedLoginHere==true || invalidCredentials==true}">
-			<div id="error">${errorMessage}</div>
-			
-
-		</c:if>
-	</div>
+		</div>
 
 
-	<div id="isAdmin">
-		<c:if test="${isAdmin==true }">
-			<%@ include file="Isadmin.jsp"%>
-		</c:if>
-	</div>
+		<div id="isAdmin">
+			<c:if test="${isAdmin==true }">
+				<%@ include file="Isadmin.jsp"%> 
+			</c:if>
+		</div>
 
-	<div id="category">
-		<c:if test="${isAdminCLickedCategory==true }">
-			<%@ include file="Category.jsp"%>
-		</c:if>
-	</div>
+		<div id="category">
+			<c:if test="${isAdminCLickedCategory==true }">
+				<%@ include file="Category.jsp"%>
+			</c:if>
+		</div>
 
-	<div id="product">
-		<c:if test="${isAdminClickedProduct==true }">
-			<%@ include file="Product.jsp"%>
-		</c:if>
-	</div>
+		<div id="product">
+			<c:if test="${isAdminClickedProduct==true }">
+				<%@ include file="Product.jsp"%>
+			</c:if>
+		</div>
 
-	<div id="supplier">
-		<c:if test="${isAdminClickedSupplier==true }">
-			<%@ include file="Supplier.jsp"%>
-		</c:if>
-	</div>
+		<div id="supplier">
+			<c:if test="${isAdminClickedSupplier==true }">
+				<%@ include file="Supplier.jsp"%>
+			</c:if>
+		</div>
 
 
 
 
-	<div id="register">
-		<c:if test="${isUserClickedRegisterHere==true}">
+		<div id="register">
+			<c:if test="${isUserClickedRegisterHere==true}">
 
 
-		</c:if>
-	</div>
+			</c:if>
+		</div>
 </body>
 </html>
 <%@ include file="footer.jsp"%>

@@ -10,12 +10,12 @@
 <title>Product</title>
 </head>
 <body>
-	<h2>ADD PRODUCT</h2>
+	<h2 style="text-align: center; font-family: verdana; color: #00000F">ADD PRODUCT</h2>
 
 	<c:url var="addProduct" value="to_add_product"></c:url>
 	<form:form action="${addProduct}" commandName="product">
 
-	<table>
+	<table >
 		<tr>
 			<td style=" font-family: verdana; color: #00000F"><form:label path="id">
 					<spring:message text="ProductID" />
@@ -28,13 +28,14 @@
 				</c:when>
 
 				<c:otherwise>
-					<td><form:input path="id" pattern=".{5,7}" required="true"
+					<td><form:input path="id"  required="true"
 							title="Enter a valid id" /></td>
 				</c:otherwise>
 			</c:choose>
 		</tr>
 
-		<tr>
+			<tr>
+			    <form:input path="id" hidden ="true"/>
 			<td style=" font-family: verdana; color: #00000F"><form:label path="name">
 					<spring:message text="ProductName"></spring:message>
 				</form:label></td>
@@ -52,7 +53,7 @@
 			<td style=" font-family: verdana; color: #00000F"><form:label path="price">
 					<spring:message text="ProductPrice"></spring:message>
 				</form:label></td>
-			<td><form:input path="description" required="true"></form:input></td>
+			<td><form:input path="price" required="true"></form:input></td>
 		</tr>
 		
 		<tr>
@@ -87,8 +88,7 @@
 					<td style=" font-family: verdana; color: #00000F">${product.name}</td>
 					<td style=" font-family: verdana; color: #00000F">${product.description}</td>
 					<td style=" font-family: verdana; color: #00000F">${product.price}</td>
-				<!-- 	<td>${product.category.name}</td> 
-					<td>${product.supplier.name}</td>  -->
+				
 					<td style=" font-family: verdana; color: #00000F"><a href="<c:url value='product/edit/${product.id}' />">Edit</a></td>
 					<td style=" font-family: verdana; color: #00000F"><a href="<c:url value='product/remove/${product.id}' />">Delete</a></td>
 				</tr>
